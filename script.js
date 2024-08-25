@@ -9,6 +9,11 @@ let goToEndButton = document.getElementById('go-to-end-btn');
 let loopCheckbox = document.getElementById('loop-checkbox');
 let animationSelect = document.getElementById('animation-select');
 
+// Image description elements
+let frameWidthElement = document.getElementById('frame-width');
+let frameHeightElement = document.getElementById('frame-height');
+let alphaStateElement = document.getElementById('alpha-state');
+
 let image = new Image();
 let animationData = null;
 let currentFrame = 0;
@@ -35,6 +40,7 @@ fileInput.addEventListener('change', async function() {
         reader.onload = function(e) {
             animationData = JSON.parse(e.target.result);
             populateAnimationList();
+            updateImageDescription(animationData.Description); // Update the image description section
             updateFrame(currentFrame);
         };
         reader.readAsText(jsonFile);
@@ -149,6 +155,12 @@ function updateFrame(frame) {
     imageFrame.style.backgroundPosition = `${x}px ${y}px`;
     imageFrame.style.width = `${frameWidth}px`;
     imageFrame.style.height = `${frameHeight}px`;
+}
+
+function updateImageDescription(description) {
+    frameWidthElement.textContent = description.FrameWidth;
+    frameHeightElement.textContent = description.FrameHeight;
+    alphaStateElement.textContent = description.Alpha ? "True" : "False";
 }
 
 function populateAnimationList() {

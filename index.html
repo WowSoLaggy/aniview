@@ -80,6 +80,16 @@
             background-color: #4CAF50;
             border-color: #3E8E41;
         }
+        /* Styling for image description */
+        #image-description {
+            margin-top: 20px;
+            font-size: 14px;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+        }
     </style>
 </head>
 <body>
@@ -98,6 +108,11 @@
         <div id="loop-container">
             <input type="checkbox" id="loop-checkbox">
             <label id="loop-label" for="loop-checkbox" title="Loop">🔄</label>
+        </div>
+        <div id="image-description">
+            <p><strong>Frame Width:</strong> <span id="frame-width">N/A</span></p>
+            <p><strong>Frame Height:</strong> <span id="frame-height">N/A</span></p>
+            <p><strong>Alpha:</strong> <span id="alpha-state">N/A</span></p>
         </div>
     </div>
     <script src="script.js"></script>
