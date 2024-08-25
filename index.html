@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Animation Tool</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #image-frame {
+            border: 2px solid #000;
+            width: 256px;
+            height: 256px;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #controls {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+        .control-button {
+            background-color: #ddd;
+            border: none;
+            margin: 3px;
+            padding: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 40px; /* Narrower buttons */
+            text-align: center;
+        }
+        .control-button:active {
+            background-color: #bbb;
+        }
+        #file-input {
+            width: auto; /* Keeps the file input button at its default size */
+            padding: 10px;
+            font-size: 16px;
+            margin: 3px;
+        }
+        #animation-select {
+            margin: 3px;
+            padding: 5px;
+            font-size: 14px;
+            width: 100px; /* Adjusting the width to match the button scale */
+        }
+        #animation-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0;
+        }
+        /* Styling for the loop checkbox */
+        #loop-container {
+            display: flex;
+            align-items: center;
+            margin: 3px;
+        }
+        #loop-checkbox {
+            display: none;
+        }
+        #loop-label {
+            background-color: #ddd;
+            border: 2px solid #bbb;
+            padding: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 40px;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        #loop-checkbox:checked + #loop-label {
+            background-color: #4CAF50;
+            border-color: #3E8E41;
+        }
+    </style>
+</head>
+<body>
+    <div id="image-frame"></div>
+    <div id="controls">
+        <input type="file" id="file-input" class="control-button" title="Open Image and JSON" accept=".png,.jpg,.jpeg,.json" multiple>
+        <select id="animation-select" class="control-button" title="Select Animation"></select>
+        <div id="animation-controls">
+            <button id="go-to-beginning-btn" class="control-button" title="Go to Beginning">⏮️</button>
+            <button id="prev-frame-btn" class="control-button" title="Previous Frame">⏪</button>
+            <button id="play-btn" class="control-button" title="Play">▶️</button>
+            <button id="stop-btn" class="control-button" title="Stop">⏹️</button>
+            <button id="next-frame-btn" class="control-button" title="Next Frame">⏩</button>
+            <button id="go-to-end-btn" class="control-button" title="Go to End">⏭️</button>
+        </div>
+        <div id="loop-container">
+            <input type="checkbox" id="loop-checkbox">
+            <label id="loop-label" for="loop-checkbox" title="Loop">🔄</label>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
