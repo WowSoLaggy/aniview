@@ -90,12 +90,17 @@
             border-radius: 5px;
             width: 200px;
         }
+        #animation-label {
+            font-size: 14px;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
     <div id="image-frame"></div>
     <div id="controls">
         <input type="file" id="file-input" class="control-button" title="Open Image and JSON" accept=".png,.jpg,.jpeg,.json" multiple>
+        <label id="animation-label" for="animation-select">Animation:</label>
         <select id="animation-select" class="control-button" title="Select Animation"></select>
         <div id="animation-controls">
             <button id="go-to-beginning-btn" class="control-button" title="Go to Beginning">⏮️</button>
